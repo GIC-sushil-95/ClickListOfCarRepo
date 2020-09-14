@@ -3,20 +3,29 @@ function ClickCarName(a, carname) {
 
    var Car = document.getElementById("Car");
    var cars = document.getElementById("cars");
-   var getclickcount = document.getElementById(carname);
+   var getclickcounthidden = document.getElementById(carname);
    var countr = document.getElementById("countr");
-   var num= parseInt(getclickcount.value);
+   var num= parseInt(getclickcounthidden.value);
    if (!cars.innerHTML.includes(carname)) {
        Car.innerText = carname.toUpperCase();
-       cars.innerHTML = '<img src="Images/' + carname + '.jpg">';
+       cars.innerHTML = '<img src="Images/' + carname + '.jpg"   onclick="RaiseCount(\''+carname+'\')" >';
        countr.innerText=num;
        ResetList();
        a.setAttribute("class", "active");
-   } else {
-       getclickcount.value =num+ 1;
-       countr.innerText = num + 1;
    }
+//    } else {
+//        getclickcount.value =num+ 1;
+//        countr.innerText = num + 1;
+//    }
 
+}
+function RaiseCount(carname){
+    debugger;
+    var getclickcounthidden = document.getElementById(carname);
+    var countr = document.getElementById("countr");
+    var num= parseInt(getclickcounthidden.value);
+    getclickcounthidden.value =num+ 1;
+   countr.innerText = num + 1;
 }
 function ResetList() {
    debugger;
